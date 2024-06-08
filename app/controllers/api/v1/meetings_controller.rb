@@ -18,6 +18,17 @@ class Api::V1::MeetingsController < Api::V1::BaseController
     end
   end
 
+  def create
+    @meeting = Meeting.new(meeting_params)
+    @meeting.user = current_user
+    authorize @meeting
+    if @meeting.save
+      render :show
+    else
+      render_error
+    end
+  end
+
   private
 
   def set_meeting
