@@ -23,7 +23,7 @@ class Api::V1::MeetingsController < Api::V1::BaseController
     @meeting.user = current_user
     authorize @meeting
     if @meeting.save
-      render :show
+      render :show, status: :created
     else
       render_error
     end
