@@ -7,4 +7,6 @@ class User < ApplicationRecord
   acts_as_token_authenticatable
   has_many :meetings
   has_many :comments
+
+  validates :username, presence: true, uniqueness: true
 end

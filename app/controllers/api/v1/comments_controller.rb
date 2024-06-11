@@ -1,7 +1,7 @@
 class Api::V1::CommentsController < Api::V1::BaseController
-  acts_as_token_authentication_handler_for User, only: [:create, :update]
-  before_action :set_meeting
-  before_action :set_comment, only: [:update]
+  acts_as_token_authentication_handler_for User, only: [:create, :update, :destroy]
+  before_action :set_meeting, only: [:create, :update, :destroy]
+  before_action :set_comment, only: [:update, :destroy]
 
   def index
     @meetings = policy_scope(Comment)
@@ -24,6 +24,11 @@ class Api::V1::CommentsController < Api::V1::BaseController
     else
       render_error
     end
+  end
+
+  def destroy
+    @comment.destroy
+    head :no_content
   end
 
   private
