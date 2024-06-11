@@ -35,7 +35,7 @@ rails s
 ```
 
 ## Built With
-- [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
+- [Rails 7](https://guides.rubyonrails.org/) 
 
 ## Based on
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
