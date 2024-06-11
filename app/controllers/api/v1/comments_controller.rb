@@ -1,6 +1,7 @@
 class Api::V1::CommentsController < Api::V1::BaseController
-  acts_as_token_authentication_handler_for User, only: [:create]
+  acts_as_token_authentication_handler_for User, only: [:create, :update]
   before_action :set_meeting
+  before_action :set_comment, only: [:update]
 
   def index
     @meetings = policy_scope(Comment)
@@ -17,11 +18,24 @@ class Api::V1::CommentsController < Api::V1::BaseController
     end
   end
 
+  def update
+    if @comment.update(comment_params)
+      render json: @comment, status: :ok
+    else
+      render_error
+    end
+  end
+
   private
 
   def set_meeting
     @meeting = Meeting.find(params[:meeting_id])
     authorize @meeting, :show?
+  end
+
+  def set_comment
+    @comment = @meeting.comments.find(params[:id])
+    authorize @comment
   end
 
   def comment_params
