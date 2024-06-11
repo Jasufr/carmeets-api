@@ -53,6 +53,8 @@ gem "sassc-rails"
 
 gem "pundit"
 gem 'simple_token_authentication'
+gem 'cloudinary', '~> 1.16.0'
+gem "rack-cors"
 
 group :development, :test do
   gem "dotenv-rails"
