@@ -1,7 +1,7 @@
 # Rails API for Car Meetings App 🚘
 
 API built with rails listing Car Meetings in Tokyo.
-This API is used as the Back-End of the [Car Meetings React App](https://github.com/Jasufr/car-meeting-react-app).
+This API is used as the Back-End of the [Car Meetings App](https://github.com/Jasufr/carmeets-frontend).
 
 <br>
 
